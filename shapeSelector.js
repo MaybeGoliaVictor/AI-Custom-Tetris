@@ -35,26 +35,26 @@ let shapeSelector = function (p) {
                 p.textSize(2.5);
                 p.fill(13, 95, 184)
                 p.textStyle(p.BOLD);
-                p.text('+', p.width - 4.39, 4.3);
+                p.text('+', p.width - 4.35, 4.5);
 
                 p.fill(18, 150, 197)
                 p.rect(p.width - 6.5, 2.75, 1.75, 1.75, 0.3)
                 p.textSize(2.5);
                 p.fill(13, 95, 184)
                 p.textStyle(p.BOLD);
-                p.text('-', p.width - 6, 4.3);
+                p.text('-', p.width - 6.1, 4.3);
 
                 let shapeConfigs = Object.keys(userData.profiles[selectedProfile].shapeConfigurations)
                 let row = 0
                 let col = 0
-                let size = 1.2
+                let size = 1.1
                 p.shapeButtonLocations = []
 
                 //render boxes and shapes
                 for (let j = 0; j < shapeConfigs.length; j++) {
 
-                    let x = 6 + (col * 4 - 2) * (p.width / 30 * size + p.width / 30 / 4)
-                    let y = 6 + (row) * (p.height / 30.5 * size + p.width / 30 / 4) * 4
+                    let x = 5.5 + (col * 4.5 - 2) * (p.width / 30 * size + p.width / 30 / 4)
+                    let y = 6 + (row) * (p.height / 30.5 * size + p.width / 30 / 4) * 4.5
                     let sizeX = p.width / 30 * 4 * size + p.width / 30 / 4
                     let sizeY = p.height / 30.5 * 4 * size
 
@@ -70,8 +70,8 @@ let shapeSelector = function (p) {
                     }
 
 
-                    p.rect(x, y, sizeX, sizeY)
-                    p.shapeButtonLocations.push({ x: x, y: y, sizeX: sizeX, sizeY: sizeY, name: shapeConfigs[j], shape: userData.profiles[selectedProfile].shapeConfigurations[shapeConfigs[j]], colour: userData.profiles[selectedProfile].shapeColours[shapeConfigs[j]] })
+                    p.rect(x - 0.5, y - 0.5, sizeX + 1, sizeY + 1)
+                    p.shapeButtonLocations.push({ x: x - 0.5, y: y - 0.5, sizeX: sizeX + 1, sizeY: sizeY + 1, name: shapeConfigs[j], shape: userData.profiles[selectedProfile].shapeConfigurations[shapeConfigs[j]], colour: userData.profiles[selectedProfile].shapeColours[shapeConfigs[j]] })
                     let shape = userData.profiles[selectedProfile].shapeConfigurations[shapeConfigs[j]][0]
 
                     if (x <= p.mouseX && p.mouseX <= x + sizeX && p.mouseY >= y && y + sizeY >= p.mouseY) {
@@ -85,7 +85,7 @@ let shapeSelector = function (p) {
                     p.noStroke()
 
                     for (let i = 0; i < shape.length; i++) {
-                        p.rect(6 + (shape[i][0] + col * 4) * (p.width / 30 * size) + (col * 4 - 2) * p.width / 30 / 4 + p.width / 30 / 8, 5.75 + (shape[i][1] + row * 4) * (p.height / 30.5 * size) + (row) * p.width / 30 + p.width / 30 / 4 + (p.height / 30.5 * size), p.width / 30 * size, p.height / 30.5 * size)
+                        p.rect((shape[i][0] + 2)*sizeX/4 + x, (shape[i][1] + 1)*sizeY/4 + y, sizeX/4, sizeY/4)
                     }
 
                     col += 1

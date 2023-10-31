@@ -142,80 +142,130 @@ let player = function (p) {
         p.background(30)
         let sideLength;
 
-        if ((p.height * 7 / 10) / p.tetris.board.length < (p.width * 7 / 10) / p.tetris.board[0].length) {
-            sideLength = (p.height * 7 / 10) / p.tetris.board.length
+        let boardHeight = p.tetris.board.length
+        let boardWidth = p.tetris.board[0].length
+        let fraction =  1 / Math.sqrt(2)
+        let textMarginX = p.width * fraction + p.width*(1-fraction)* 1/10
+        let textMarginY = p.width*(1-fraction)* 1/10 + 10
+
+        let labelSize = 17
+        let numberSize = 35
+
+        let nextShape = shapeConfigurations[p.tetris.nextShape][0]
+        let nextShapeColour = shapeColours[p.tetris.nextShape]
+        let nextBoxSize = 100
+        let x = p.width*(1+fraction)/2-nextBoxSize/2
+        let y = textMarginY + 65
+
+        if (p.height / boardHeight < p.width * fraction / boardWidth) {
+            sideLength = p.height / boardHeight
+
             p.fill(0)
             p.noStroke()
-            p.rect(0, 0, (p.height * 7 / 10) / p.tetris.board.length * p.tetris.board[0].length, p.height * 7 / 10)
+            p.rect((p.width*fraction - boardWidth*sideLength)/2, 0, boardWidth*sideLength, p.height)
 
             p.fill(27)
-            p.rect(0, p.height * 7 / 10, p.width, p.height * 3 / 10)
+            p.rect(p.width * fraction, 0, p.width * (1-fraction), p.height)
 
-            p.fill(220)
-            p.textStyle(p.BOLD);
-            p.textSize(20);
-            p.text("PLAYER", 30, p.height * 7 / 10 + 22);
-            p.fill(200)
-            p.textSize(12);
-            p.text(`Score: ${p.tetris.score}`, 30, p.height * 8 / 10);
-            p.text(`Lines Cleared: ${p.tetris.linesCleared}`, 110, p.height * 8 / 10);
-            p.text(`Level: ${p.tetris.level}`, 30, p.height * 8 / 10 + 12);
-            p.text("Controls:", 110, p.height * 8 / 10 + 13);
-            p.text("z - Rotate Anticlockwise", 110, p.height * 8 / 10 + 24);
-            p.text("x - Rotate Clockwise", 110, p.height * 8 / 10 + 35);
-            p.text("Left Arrow - Move Left", 110, p.height * 8 / 10 + 46);
-            p.text("Right Arrow - Move Left", 110, p.height * 8 / 10 + 57);
-            p.text("Down Arrow - Move Down", 110, p.height * 8 / 10 + 68);
+            //render shape
+            p.tetris.shape.render((p.width*fraction - boardWidth*sideLength)/2, 0, sideLength, p)
 
+            //render blocks on the board
+            for (let row = 0; row < p.tetris.board.length; row++) {
+                for (let col = 0; col < p.tetris.board[row].length; col++) {
+                    if (p.tetris.board[row][col] != 0) {
+                        p.fill(p.tetris.board[row][col])
+
+                        p.rect(col * sideLength + (p.width*fraction - boardWidth*sideLength)/2, row * sideLength, sideLength, sideLength)
+                    }
+
+                }
+            }
         }
         else {
-            sideLength = (p.width * 7 / 10) / p.tetris.board[0].length
+            sideLength = p.width * fraction / boardWidth
+
             p.fill(0)
             p.noStroke()
-            p.rect(0, 0, p.width * 7 / 10, (p.width * 7 / 10) / p.tetris.board[0].length * p.tetris.board.length)
+            p.rect(0, (p.height - boardHeight*sideLength) / 2, p.width * fraction, boardHeight*sideLength)
 
             p.fill(27)
             //height is to match where the controls go to
-            p.rect(p.width * 7 / 10, 0, p.width * 3 / 10, p.height)
+            p.rect(p.width * fraction, 0, p.width * (1-fraction), p.height)
 
-            p.fill(220)
-            p.textStyle(p.BOLD);
-            p.textSize(20);
-            p.text("PLAYER", p.width * 7.25 / 10, 30);
-            p.fill(200)
-            p.textSize(12);
-            p.text(`Score: ${p.tetris.score}`, p.width * 7.25 / 10, 60);
-            p.text(`Lines Cleared: ${p.tetris.linesCleared}`, p.width * 7.25 / 10, 80);
-            p.text(`Level: ${p.tetris.level}`, p.width * 7.25 / 10, 100);
-            p.text("Controls:", p.width * 7.25 / 10, 140);
-            p.text(", - Rotate Anticlockwise", p.width * 7.25 / 10, 160);
-            p.text(". - Rotate Clockwise", p.width * 7.25 / 10, 180);
-            p.text("Left Arrow - Move Left", p.width * 7.25 / 10, 200);
-            p.text("Right Arrow - Move Left", p.width * 7.25 / 10, 220);
-            p.text("Down Arrow - Move Down", p.width * 7.25 / 10, 240);
+            //render shape
+            p.tetris.shape.render(0, (p.height - boardHeight*sideLength) / 2, sideLength, p)
 
+            //render blocks on the board
+            for (let row = 0; row < p.tetris.board.length; row++) {
+                for (let col = 0; col < p.tetris.board[row].length; col++) {
+                    if (p.tetris.board[row][col] != 0) {
+                        p.fill(p.tetris.board[row][col])
 
-        }
-
-
-        p.fill(0)
-        p.noStroke()
-
-
-        //render current piece
-        p.tetris.shape.render(0, 0, sideLength, p)
-
-        //render blocks already on the board
-        for (let row = 0; row < p.tetris.board.length; row++) {
-            for (let col = 0; col < p.tetris.board[row].length; col++) {
-                if (p.tetris.board[row][col] != 0) {
-                    p.fill(p.tetris.board[row][col])
-
-                    p.rect(col * sideLength, row * sideLength, sideLength, sideLength)
+                        p.rect(col * sideLength, row * sideLength + (p.height - boardHeight*sideLength)/2, sideLength, sideLength)
+                    }
                 }
-
             }
         }
-    }
 
+        p.fill(220)
+        p.textStyle(p.BOLD);
+        p.textSize(32.75);
+        p.textAlign(p.CENTER, p.TOP)
+        p.text("PLAYER", p.width*(1+fraction)/2, textMarginY-10);
+        p.fill(200)
+
+        p.textSize(labelSize);
+        p.textStyle(p.BOLD);
+        p.text(`Next`, p.width*(1+fraction)/2, textMarginY + 65-3.5-5-labelSize);
+
+        p.push()
+        p.fill(0)
+        p.strokeWeight(7)
+        p.stroke(50)
+        p.rect(x-3.5, y-3.5, nextBoxSize+7, nextBoxSize+7)
+        p.pop()
+
+        p.push()
+        p.fill(nextShapeColour)
+        for (let i = 0; i < nextShape.length; i++) {
+            p.rect(x+nextBoxSize/2 + nextShape[i][0]*nextBoxSize/4, y+nextBoxSize/2 + nextShape[i][1]*nextBoxSize/4, nextBoxSize/4, -nextBoxSize/4)
+        }
+        p.pop()
+
+        p.textAlign(p.LEFT)
+
+        p.textSize(labelSize);
+        p.textStyle(p.BOLD);
+        p.text(`Score`, textMarginX, textMarginY+nextBoxSize + 90);
+
+        p.textSize(numberSize);
+        p.textStyle(p.NORMAL);
+        p.text(`${p.tetris.score}`, textMarginX, textMarginY+nextBoxSize + 95+labelSize);
+
+        p.textSize(labelSize);
+        p.textStyle(p.BOLD);
+        p.text(`Lines Cleared`, textMarginX, textMarginY+nextBoxSize + 110+labelSize+numberSize);
+
+        p.textSize(numberSize);
+        p.textStyle(p.NORMAL);
+        p.text(`${p.tetris.linesCleared}`, textMarginX, textMarginY+nextBoxSize + 115+labelSize*2+numberSize);
+
+        p.textSize(labelSize);
+        p.textStyle(p.BOLD);
+        p.text(`Level`, textMarginX, textMarginY+nextBoxSize + 130+labelSize*2+numberSize*2);
+        
+        p.textSize(numberSize);
+        p.textStyle(p.NORMAL);
+        p.text(`${p.tetris.level}`, textMarginX, textMarginY+nextBoxSize + 135+labelSize*3+numberSize*2);
+
+        p.textSize(labelSize);
+        p.textStyle(p.BOLD);
+        p.text("Controls:", textMarginX,textMarginY+nextBoxSize + 150 +labelSize*3+numberSize*3);
+        p.text("z - Rotate Anticlockwise", textMarginX,textMarginY+nextBoxSize + 160 +labelSize*4+numberSize*3);
+        p.text("x - Rotate Clockwise", textMarginX,textMarginY+nextBoxSize + 170 +labelSize*5+numberSize*3);
+        p.text("Left Arrow - Move Left", textMarginX,textMarginY+nextBoxSize + 180 +labelSize*6+numberSize*3);
+        p.text("Right Arrow - Move Left", textMarginX,textMarginY+nextBoxSize + 190 +labelSize*7+numberSize*3);
+        p.text("Down Arrow - Move Down", textMarginX,textMarginY+nextBoxSize + 200 +labelSize*8+numberSize*3);
+    }
 }
