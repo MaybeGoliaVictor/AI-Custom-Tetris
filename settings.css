@@ -1,0 +1,70 @@
+.Settings-Page{
+    margin-left: 5rem;
+    margin-top: 1vh;
+    transform:scale(0.99);
+}
+
+
+.flexbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    padding: 0rem;
+    border: 0rem;
+    margin: 0rem;
+}
+
+
+.flextbox-item {
+    flex: 1;
+    padding: 0rem;
+    border: 0rem;
+    margin: 0rem;
+}
+
+.flexbox-item .txt_field input{
+    color: rgb(200, 200, 200);
+}
+
+.flexbox-item .txt_field input:focus{
+    color: rgb(255, 255, 255);
+}
+
+.box {
+  background: rgb(27, 27, 27);
+  color: white;
+    border-radius: 1rem;
+  width: 36rem;
+  height: 16rem;
+  overflow: hidden;
+  z-index: -1;
+
+}
+
+.box h1{
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid silver;
+    overflow: hidden;
+  }
+.box form{
+    padding: 0 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#shapeSelector canvas {
+    width: 26rem !important;
+    height: 26.5rem !important;
+    border-top-left-radius: 1rem;
+    border: 0rem;
+}
+
+#shapeMaker canvas {
+    width: 26rem !important;
+    height: 26.5rem !important;
+    border-top-right-radius: 1rem;
+    border: 0rem;
+}

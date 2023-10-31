@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- import p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+
+  <link rel="stylesheet" href="Navigation/navbar.css">
+  <link rel="stylesheet" href="settings.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="table.css">
+
+  <title>Document</title>
+</head>
+<body>
+<!-- Side Bar -->
+  <nav class = "navbar">
+    <ul class = "navbar-nav" id="navbar-nav">
+
+<!-- Logo -->
+      <li class = "logo">
+        <a href="#" class = "nav-logo-link">
+          <span class = "logo-text">Arctrus</span>
+          <svg viewBox="100 25 512 512" xmlns="http://www.w3.org/2000/svg">
+            <g>
+             <path fill="currentColor" class="fa-secondary" d="m539.76 269.21v-106.48c0-5.1016-5.1016-9.2344-9.2344-9.2344h-106.48c-5.1016 0-9.2344 4.1328-9.2344 9.2344v106.48c0 5.1016 5.1016 9.2344 9.2344 9.2344h106.48c5.1016 0 9.2344-4.1328 9.2344-9.2344z"/>
+             <path fill="currentColor" class="fa-secondary" d="m412.48 269.21v-106.48c0-5.1016-5.1016-9.2344-9.2344-9.2344h-106.48c-5.1016 0-9.2344 4.1328-9.2344 9.2344v106.48c0 5.1016 5.1016 9.2344 9.2344 9.2344h106.48c5.1016 0 9.2344-4.1328 9.2344-9.2344z"/>
+             <path fill="currentColor" class="fa-secondary" d="m285.19 269.21v-106.48c0-5.1016-5.1016-9.2344-9.2344-9.2344h-106.48c-5.1016 0-9.2344 4.1328-9.2344 9.2344v106.48c0 5.1016 5.1016 9.2344 9.2344 9.2344h106.48c5.1016 0 9.2344-4.1328 9.2344-9.2344z"/>
+             <path fill="currentColor" class="fa-secondary" d="m412.1 397.27v-106.48c0-5.1016-5.1016-9.2344-9.2344-9.2344h-106.48c-5.1016 0-9.2344 4.1328-9.2344 9.2344v106.48c0 5.1016 5.1016 9.2344 9.2344 9.2344h106.48c5.1016 0 9.2344-4.1328 9.2344-9.2344z"/>
+            </g>
+           </svg>
+        </a>
+      </li>
+
+<!-- Login -->
+      <li class = "nav-item">
+        <a href="#" class = "nav-link active" id = "Account">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+          <g class="fa-group">
+            <path
+              fill="currentColor" 
+              d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+              class="fa-secondary"
+            ></path>
+          </g>
+          </svg>
+          
+          <span class = "link-text">Account</span>
+        </a>
+      </li>
+
+
+<!-- Player VS AI -->
+      <li class = "nav-item disable">
+        <a href="#" class = "nav-link" id = "Player VS AI">
+          <!-- Circle -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            height="28%"
+            style = " margin: 0rem; margin-left: 1.5rem;"
+          >
+          <g class="fa-group">
+            <path
+              fill="currentColor"
+              d="M0 96C0 60.65 28.65 32 64 32H384C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96z"
+              class="fa-play-secondary"
+              
+            ></path>
+            
+          </g>
+          </svg>
+          <!-- Playbutton -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="svg-inline--fa fa-circle-play fa-w-16 fa-9x"
+            style = "margin: -2rem; margin-right: 1.5rem;"
+            
+          >
+          <g class="fa-group">
+            <path
+              fill="currentColor"
+              d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z"
+              class="fa-play-primary"
+            ></path>
+            
+          </g>
+          </svg>
+          <span class = "link-text">Player VS AI</span>
+        </a>
+      </li>
+
+<!-- Settings -->
+      <li class = "nav-item disable">
+        <a href="#" class = "nav-link" id = "Settings">
+          <!-- circle -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="svg-inline--fa fa-circle fa-w-16 fa-9x"
+            width="6%"
+            height="6%"
+            style = " margin: 0rem; margin-left: 1.5rem;"
+          >
+          <g class="fa-group">
+            <path
+              fill="currentColor"
+              d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z"
+              class="fa-primary"
+              
+            ></path>
+            
+          </g>
+          </svg>
+          <!-- gear -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class="svg-inline--fa fa-gear fa-w-16 fa-9x"
+            style = "margin: -2rem; margin-right: 1.5rem;"
+          >
+          <g class="fa-group">
+            <path
+              fill="currentColor"
+              d="M495.9 166.6C499.2 175.2 496.4 184.9 489.6 191.2L446.3 230.6C447.4 238.9 448 247.4 448 256C448 264.6 447.4 273.1 446.3 281.4L489.6 320.8C496.4 327.1 499.2 336.8 495.9 345.4C491.5 357.3 486.2 368.8 480.2 379.7L475.5 387.8C468.9 398.8 461.5 409.2 453.4 419.1C447.4 426.2 437.7 428.7 428.9 425.9L373.2 408.1C359.8 418.4 344.1 427 329.2 433.6L316.7 490.7C314.7 499.7 307.7 506.1 298.5 508.5C284.7 510.8 270.5 512 255.1 512C241.5 512 227.3 510.8 213.5 508.5C204.3 506.1 197.3 499.7 195.3 490.7L182.8 433.6C167 427 152.2 418.4 138.8 408.1L83.14 425.9C74.3 428.7 64.55 426.2 58.63 419.1C50.52 409.2 43.12 398.8 36.52 387.8L31.84 379.7C25.77 368.8 20.49 357.3 16.06 345.4C12.82 336.8 15.55 327.1 22.41 320.8L65.67 281.4C64.57 273.1 64 264.6 64 256C64 247.4 64.57 238.9 65.67 230.6L22.41 191.2C15.55 184.9 12.82 175.3 16.06 166.6C20.49 154.7 25.78 143.2 31.84 132.3L36.51 124.2C43.12 113.2 50.52 102.8 58.63 92.95C64.55 85.8 74.3 83.32 83.14 86.14L138.8 103.9C152.2 93.56 167 84.96 182.8 78.43L195.3 21.33C197.3 12.25 204.3 5.04 213.5 3.51C227.3 1.201 241.5 0 256 0C270.5 0 284.7 1.201 298.5 3.51C307.7 5.04 314.7 12.25 316.7 21.33L329.2 78.43C344.1 84.96 359.8 93.56 373.2 103.9L428.9 86.14C437.7 83.32 447.4 85.8 453.4 92.95C461.5 102.8 468.9 113.2 475.5 124.2L480.2 132.3C486.2 143.2 491.5 154.7 495.9 166.6V166.6zM256 336C300.2 336 336 300.2 336 255.1C336 211.8 300.2 175.1 256 175.1C211.8 175.1 176 211.8 176 255.1C176 300.2 211.8 336 256 336z"
+              class="fa-secondary"
+            ></path>
+            
+          </g>
+          </svg>
+          <span class = "link-text">Settings</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+
+<!-- Login -->
+<div class="center Login-Page">
+  <h1 id="Login-Form-Title">Login</h1>
+  <form id="Login-Form" value = "login">
+    <div class="error_message" id = "errMessage"></div>
+    <div class="txt_field">
+      <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+      <input type="email" id = "email" required  placeholder="&#8203;" />
+      <span></span>
+      <label>Email</label>
+    </div>
+    <div class="txt_field">
+      <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+      <input type="password" id = "password" minlength="6" required  placeholder="&#8203;" />
+      <span></span>
+      <label>Password</label>
+    </div>
+    <input type="submit" value="Login" id="submitForm">
+    <div class="error_message" id = "formSwitcher">
+      Don't have an account? <a id="formSwitcher-link" >Signup!</a>
+    </div>
+  </form>
+</div>
+
+
+<!-- Player VS AI -->
+<div class = "Player VS AI-Page disable">
+  <input type="submit" class="No" value="Back" id="backButton" style=" width: 5rem; margin-top: 0.5rem; margin-left: 0.2rem;"  >
+
+
+  <div class="center" id="startingScreen" style="background-color: rgb(40, 40, 40)">
+    <h1 style="font-size: 5rem; margin: 1rem; color: rgb(230, 230, 230);">Ready To Start?</h1>
+
+    <div class="flexbox-container">
+
+        <input type="submit" class="Yes" value="Yes!" style=" margin: 1rem;"  >
+
+        <input type="submit" class="No" value="No, Change Settings" style=" margin: 1rem;"  >
+
+    </div>
+  </div>
+
+  <div id="tetrisCanvas" class="disable">
+    <div class="flexbox-container">
+      <div id="AI Canvas" style = "border: 2rem solid rgba(13, 95, 184, 0.7)"></div>
+      <div id="Player Canvas" style = "border: 2rem solid rgba(13, 95, 184, 0.7)"></div>
+    </div>
+  </div>
+
+  <div id="winScreen" class = "center disable" style="background-color: rgb(30, 60, 40)">
+    <h1 style="font-size: 5rem; margin: 1rem; color: rgb(230, 230, 230)">You Won!</h1>
+
+    <div class="flexbox-container">
+
+        <input type="submit" class="Yes" value="Again?" style=" margin: 1rem;"  >
+
+        <input type="submit" class="No" value="No, Change Settings" style=" margin: 1rem;"  >
+
+    </div>
+  </div>
+
+  <div id="loseScreen" class = "center disable" style="background-color: rgb(60, 30, 40)">
+    <h1 style="font-size: 5rem; margin: 1rem; color: rgb(230, 230, 230)">You Lost.</h1>
+
+    <div class="flexbox-container">
+
+        <input type="submit" class="Yes" value="Again?" style=" margin: 1rem;"  >
+
+        <input type="submit" class="No" value="No, Change Settings" style=" margin: 1rem;"  >
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Settings -->
+<div class = "Settings-Page disable">
+  <div class="flexbox-container" >
+
+      <div id="shapeSelector"></div>
+
+      <div class="flexbox-item">
+        <div class="flexbox-item box" style ="border-radius: 0rem; height: 25rem; width: 20rem;">
+          <h1>Shape Data</h1>
+          <form>
+            <div class="txt_field">
+              <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+              <input type="number" id= "Red" placeholder="&#8203;" onchange="shapeSelectorp5.valueChanged()" min="0" max="255" required>
+              <span></span>
+              <label>Red (0-255)</label>
+            </div>
+            <div class="txt_field">
+              <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+              <input type="number" id="Green" placeholder="&#8203;" onchange="shapeSelectorp5.valueChanged()" min="0" max="255" required>
+              <span></span>
+              <label>Green (0-255)</label>
+            </div>
+            <div class="txt_field">
+              <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+              <input type="number" id="Blue" placeholder="&#8203;" onchange="shapeSelectorp5.valueChanged()" min="0" max="255" required>
+              <span></span>
+              <label>Blue (0-255)</label>
+            </div>
+            <div class="txt_field">
+              <!-- doesn't need a placeholder since it starts with a value -->
+              <input type="number" id="No. of Rotations"  placeholder="" value ="1" onchange="shapeSelectorp5.valueChanged()"  min="1" max="5" required>
+              <span></span>
+              <label>No. of Rotations (1-5)</label>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- canvas for selected where the blocks go for each rotation of a piece -->
+      <div id="shapeMaker"></div>
+
+  </div>
+
+  <div class="flexbox-container">
+    <div class="flexbox-item">
+      <div class="flexbox-item box" style ="border-bottom-right-radius: 0rem; border-top-left-radius: 0rem; border-top-right-radius: 0rem;">
+        <h1>Board Dimensions</h1>
+        <form>
+          <div class="txt_field">
+            <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+            <input type="number" id= "Width" required placeholder="&#8203;"  onchange="shapeSelectorp5.valueChanged()" min="5" step="1" max="40" required>
+            <span></span>
+            <label>Width (5-40)</label>
+          </div>
+          <div class="txt_field">
+            <!-- Place holder is just so it's easy to check whether the field is empty or not with css -->
+            <input type="number" id="Height" required placeholder="&#8203;" onchange="shapeSelectorp5.valueChanged()" min="8" step="1" max="80" required>
+            <span></span>
+            <label>Height (8-80)</label>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Right -->
+    <div class="flexbox-item">
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Saved Profiles</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tableId">
+          <tr id = "Normal" class="profileActive"><td>Profile 1</td><td><input type="submit" value="Load" id="loadProfile(0)" style="width: 30%; height: 50%; font-size: 10px" click="loadProfile(0)" ></td></tr>
+          <tr id = "Extreme" ><td>Profile 2</td><td><input type="submit" value="Load" id="loadProfile(1)" style="width: 30%; height: 50%; font-size: 10px" click="loadProfile(1)" ></td></tr>
+          <tr id = "Wimsicle" ><td>Profile 3</td><td><input type="submit" value="Load" id="loadProfile(2)" style="width: 30%; height: 50%; font-size: 10px" click="loadProfile(2)" ></td></tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="flexbox-container">
+    <h1 id="savedSuccessfully" style="color:rgb(18, 150, 197); margin: 0rem" class = "disable"> Saved Successfully!</h1>
+  </div>
+
+  <div class="flexbox-container">
+    <input type="submit" id="Save To Profile" value="Save Changes" style="width: 15%; margin-top: 2vh;"  >
+  </div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+
+<script src="Navigation/navBar.js"></script>
+
+<script src="shapeSelector.js"></script>
+<script src="shapeMaker.js"></script>
+<script src="profilesFinaliser.js"></script>
+
+<script src="Tetris/AI.js"></script>
+<script src="Tetris/AIPlayer.js"></script>
+<script src="Tetris/piece.js"></script>
+<script src="Tetris/shapes.js"></script>
+<script src="Tetris/tetris.js"></script>
+<script src="Tetris/player.js"></script>
+<script src="Navigation/PlayerVsAi.js"></script>
+
+</body>
+
+
+</html>
