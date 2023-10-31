@@ -23,7 +23,7 @@
 }
 
 .styled-table td {
-    border-top: 0.1rem solid rgb(40,40,40)
+    border-top: 0.1rem solid rgb(40, 40, 40)
 }
 
 .styled-table tbody tr {
@@ -52,8 +52,8 @@
     text-align: left;
 }
 
-.profileActive td{
-    background-color: rgb(0,0,0);
+.profileActive td {
+    background-color: rgb(0, 0, 0);
     color: rgb(38, 170, 217);
     font-size: 1.15rem;
 }

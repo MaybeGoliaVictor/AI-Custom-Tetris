@@ -1,4 +1,4 @@
-function loadProfile(profile){
+function loadProfile(profile) {
     let width = document.getElementById("Width")
     let height = document.getElementById("Height")
 
