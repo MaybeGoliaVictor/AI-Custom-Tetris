@@ -145,7 +145,7 @@ let player = function (p) {
         let boardHeight = p.tetris.board.length
         let boardWidth = p.tetris.board[0].length
         let fraction =  1 / Math.sqrt(2)
-        let textMarginX = p.width * fraction + p.width*(1-fraction)* 1/10
+        let textMarginX = p.width * fraction + p.width*(1-fraction)* 1/40
         let textMarginY = p.width*(1-fraction)* 1/10 + 10
 
         let labelSize = 17
@@ -259,7 +259,7 @@ let player = function (p) {
         p.textStyle(p.NORMAL);
         p.text(`${p.tetris.level}`, textMarginX, textMarginY+nextBoxSize + 135+labelSize*3+numberSize*2);
 
-        p.textSize(labelSize);
+        p.textSize(labelSize-4);
         p.textStyle(p.BOLD);
         p.text("Controls:", textMarginX,textMarginY+nextBoxSize + 150 +labelSize*3+numberSize*3);
         p.text("z - Rotate Anticlockwise", textMarginX,textMarginY+nextBoxSize + 160 +labelSize*4+numberSize*3);
